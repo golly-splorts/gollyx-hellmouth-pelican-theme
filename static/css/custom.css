@@ -3,10 +3,7 @@
 }
 
 body {
-  /* navbar: */
-  /*padding-top: 100px;*/
-  /* no navbar: */
-  padding-top: 20px;
+  padding-top: 100px;
 }
 /*
 .scoreboard-panel span, .stats-panel span {
