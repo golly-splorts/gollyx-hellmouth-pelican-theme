@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<html lang="en">
+<head>
+
+    {% block head %}
+    {#
+    <title>{% block title %}{% endblock title %}</title>
+    #}
+    <title>{{ SITENAME }}</title>
+    <meta charset="utf-8" />
+
+    <!--
+    CSS styles
+    -->
+    <link href="{{ SITEURL }}/theme/css/slate.css"  rel="stylesheet" type="text/css">
+    <link href="{{ SITEURL }}/theme/css/custom.css" rel="stylesheet" type="text/css">
+
+    {% endblock head %}
+
+    {% block extra_header %}
+    {% endblock %}
+
+</head>
+<body id="index">

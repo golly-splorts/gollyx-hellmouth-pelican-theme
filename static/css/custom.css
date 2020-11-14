@@ -1,0 +1,24 @@
+.scoreboard-panel {
+  font-size: 18px;
+}
+
+body {
+  /* navbar: */
+  /*padding-top: 100px;*/
+  /* no navbar: */
+  padding-top: 20px;
+}
+/*
+.scoreboard-panel span, .stats-panel span {
+  padding: 5px;
+}
+*/
+
+.badge-brightmono {
+  background-color: #eee;
+  color: #333;
+}
+
+#canvascontainer {
+    padding-bottom: 20px;
+}
