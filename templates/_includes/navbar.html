@@ -1,60 +1,89 @@
-  <!-- Navigation -->
-  <!--
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-  -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Portfolio
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Blog
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-              <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-              <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-              <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Other Pages
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-              <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-              <a class="dropdown-item" href="faq.html">FAQ</a>
-              <a class="dropdown-item" href="404.html">404</a>
-              <a class="dropdown-item" href="pricing.html">Pricing Table</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<!-- Navigation -->
+<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
 
+  <div class="container">
+
+    <a href="{{ SITEURL }}" class="navbar-brand">{{ SITENAME }}</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- this is the non-brand portion of the nav bar -->
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+
+      <!-- begin list of navbar buttons -->
+      <ul class="navbar-nav">
+
+        <!--
+        pages order:
+        - current games
+        - season*
+        - postseason*
+        - league
+        - rosters
+        - maps
+        -->
+
+        <!-- current games -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{SITEURL}}/current.html">Current Games</a>
+        </li>
+
+        <!-- seasons -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
+              Season <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="themes">
+            <a class="dropdown-item" href="#">Season 5*</a>
+            <a class="dropdown-item" href="#">Season 4</a>
+            <a class="dropdown-item" href="#">Season 3</a>
+            <a class="dropdown-item" href="#">Season 2</a>
+            <a class="dropdown-item" href="#">Season 1</a>
+          </div>
+        </li>
+
+        <!-- postseasons -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
+              Postseason <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="themes">
+            <a class="dropdown-item" href="#">Season 5*</a>
+            <a class="dropdown-item" href="#">Season 4</a>
+            <a class="dropdown-item" href="#">Season 3</a>
+            <a class="dropdown-item" href="#">Season 2</a>
+            <a class="dropdown-item" href="#">Season 1</a>
+          </div>
+        </li>
+
+        <!-- league -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{SITEURL}}/league.html">League</a>
+        </li>
+
+        <!-- rosters -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{SITEURL}}/rosters.html">Rosters</a>
+        </li>
+
+        <!-- maps -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{SITEURL}}/maps.html">Maps</a>
+        </li>
+
+        <!-- rules -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{SITEURL}}/rules.html">Rules</a>
+        </li>
+
+        <!-- about -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{SITEURL}}/about.html">About</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</div>
