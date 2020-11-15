@@ -1,21 +1,45 @@
 .scoreboard-panel {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 body {
-  padding-top: 100px;
+    padding-top: 100px;
 }
-/*
-.scoreboard-panel span, .stats-panel span {
-  padding: 5px;
+
+.card {
+    margin-bottom: 20px;
 }
-*/
 
 .badge-brightmono {
-  background-color: #eee;
-  color: #333;
+    background-color: #eee;
+    color: #333;
 }
 
 #canvascontainer {
     padding-bottom: 20px;
 }
+
+/****************************
+ * styles for season/postseason
+ ****************************/
+
+a.card-nodecoration {
+    text-decoration: none;
+}
+
+h1.season-header, h1.league-header {
+    margin-bottom: 60px;
+}
+
+div.season-toc {
+    margin-bottom: 60px;
+}
+
+div.postseason-series-header, div.league-standings-section {
+    margin-top: 60px;
+}
+
+a.padded-anchor {
+    position:absolute; top:-100px;
+}
+
