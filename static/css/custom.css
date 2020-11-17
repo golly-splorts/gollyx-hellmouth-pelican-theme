@@ -19,8 +19,17 @@ body {
     padding-bottom: 20px;
 }
 
+a.padded-anchor {
+    position:absolute; top:-100px;
+}
+
+footer.body {
+    padding-top: 100px;
+}
+
+
 /****************************
- * styles for season/postseason
+ * styles for season/postseason/league pages
  ****************************/
 
 a.card-nodecoration {
@@ -39,7 +48,10 @@ div.postseason-series-header, div.league-standings-section {
     margin-top: 60px;
 }
 
-a.padded-anchor {
-    position:absolute; top:-100px;
-}
+/****************************
+ * styles for landing page
+ ****************************/
 
+h1.champion-header, h2.champion-header, h3.champion-header {
+    margin-bottom: 60px;
+}
