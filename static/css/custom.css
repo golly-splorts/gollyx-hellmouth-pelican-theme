@@ -3,7 +3,10 @@
 }
 
 body {
-    padding-top: 100px;
+  /* navbar: */
+  padding-top: 100px;
+  /* no navbar: */
+  /*padding-top: 20px;*/
 }
 
 .card {
@@ -49,9 +52,45 @@ div.postseason-series-header, div.league-standings-section {
 }
 
 /****************************
+ * style common to game cards
+ ****************************/
+
+.game-winner {
+    font-weight: 600;
+}
+
+.game-loser {
+    font-weight: 250;
+}
+
+div.card-body {
+    font-weight: 250;
+}
+
+/****************************
  * styles for landing page
  ****************************/
 
 h1.champion-header, h2.champion-header, h3.champion-header {
     margin-bottom: 60px;
+}
+
+div.seed-table {
+    margin-top: 30px;
+}
+
+.seed-number {
+    font-size: 110%;
+}
+
+/*****************************
+ * styles for player viewer
+ *****************************/
+
+#playerteamcontrols {
+    padding-bottom: 20px;
+}
+
+.player-viewer-link {
+  color: steelblue;
 }
