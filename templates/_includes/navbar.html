@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+<div class="navbar navbar-expand-md fixed-top navbar-dark bg-primary">
 
   <div class="container">
 
@@ -17,7 +17,7 @@
 
         <!--
         pages order:
-        - current games
+        - home
         - season*
         - postseason*
         - league
@@ -27,7 +27,24 @@
 
         <!-- current games -->
         <li class="nav-item">
-          <a class="nav-link" href="{{SITEURL}}/current.html">Current Games</a>
+          <a class="nav-link" href="landing.html">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
+              Modes <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="themes">
+            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_0009.html">Mode 00-09</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_1019.html">Mode 10-19</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_21.html">Mode 21</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_22.html">Mode 22</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_23.html">Mode 23</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_31.html">Mode 31</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_32.html">Mode 32</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_33.html">Mode 33</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_40plus.html">Mode 40</a>
+          </div>
         </li>
 
         <!-- seasons -->
@@ -36,11 +53,7 @@
               Season <span class="caret"></span>
           </a>
           <div class="dropdown-menu" aria-labelledby="themes">
-            <a class="dropdown-item" href="#">Season 5*</a>
-            <a class="dropdown-item" href="#">Season 4</a>
-            <a class="dropdown-item" href="#">Season 3</a>
-            <a class="dropdown-item" href="#">Season 2</a>
-            <a class="dropdown-item" href="#">Season 1</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/season.html">Season 1</a>
           </div>
         </li>
 
@@ -50,22 +63,18 @@
               Postseason <span class="caret"></span>
           </a>
           <div class="dropdown-menu" aria-labelledby="themes">
-            <a class="dropdown-item" href="#">Season 5*</a>
-            <a class="dropdown-item" href="#">Season 4</a>
-            <a class="dropdown-item" href="#">Season 3</a>
-            <a class="dropdown-item" href="#">Season 2</a>
-            <a class="dropdown-item" href="#">Season 1</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/postseason.html">Season 1</a>
           </div>
         </li>
 
         <!-- league -->
         <li class="nav-item">
-          <a class="nav-link" href="{{SITEURL}}/league.html">League Standings</a>
+          <a class="nav-link" href="{{SITEURL}}/league.html">Standings</a>
         </li>
 
         <!-- rosters -->
         <li class="nav-item">
-          <a class="nav-link" href="{{SITEURL}}/rosters.html">Rosters</a>
+          <a class="nav-link" href="{{SITEURL}}/player_viewer/">Rosters</a>
         </li>
 
         <!-- maps -->
