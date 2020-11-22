@@ -32,14 +32,22 @@ footer.body {
 
 
 /****************************
- * styles for season/postseason/league pages
+ * season, posteason, league
  ****************************/
 
-a.card-nodecoration {
-    text-decoration: none;
+.season-day-header {
+    margin-top: 30px;
 }
 
-h1.season-header, h1.league-header {
+.season-number-button {
+    width: 40px;
+}
+
+h1.season-header {
+    margin-bottom: 30px;
+}
+
+h1.league-header {
     margin-bottom: 60px;
 }
 
@@ -52,7 +60,7 @@ div.postseason-series-header, div.league-standings-section {
 }
 
 /****************************
- * style common to game cards
+ * game card styles
  ****************************/
 
 .game-winner {
@@ -68,8 +76,22 @@ div.card-body {
 }
 
 /****************************
- * styles for landing page
+ * landing page
  ****************************/
+
+div.invisible {
+    visibility: hidden;
+    display: none;
+}
+
+div.landing-header {
+    margin-bottom: 30px;
+}
+
+div.landing-header-below {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 
 h1.champion-header, h2.champion-header, h3.champion-header {
     margin-bottom: 60px;
@@ -83,8 +105,12 @@ div.seed-table {
     font-size: 110%;
 }
 
+div.vspace40 {
+    margin-top: 40px;
+}
+
 /*****************************
- * styles for player viewer
+ * player viewer
  *****************************/
 
 #playerteamcontrols {
@@ -93,4 +119,12 @@ div.seed-table {
 
 .player-viewer-link {
   color: steelblue;
+}
+
+/****************************
+ * standings page
+ ****************************/
+
+span.standings-record {
+    font-size: 110%;
 }
