@@ -1,0 +1,36 @@
+<!-- minilife include template -->
+<div class="row justify-content-lg-center">
+  <div class="col-md-4">
+    <div>
+      <h3 style="color: #eee;">minilife</h3>
+    </div>
+    <div>
+      <button type="button" id="buttonRun"   class="btn btn-sm btn-success btn-secondary">Run</button>
+      <button type="button" id="buttonStep"  class="btn btn-sm btn-default btn-secondary">Step</button>
+      <button type="button" id="buttonClear" class="btn btn-sm btn-default btn-secondary">Clear</button>
+    </div>
+    <div>
+      Generation: <span id="generation"></span>
+    </div>
+    <div>
+      Live Cells: <span id="livecells"></span>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-lg-center">
+  <div class="col-md-4">
+    <noscript>You must enable Javascript to play minilife.</noscript>
+    <canvas id="canvas" width="400" height="400">
+  </div>
+</div>
+
+<!-- 
+minilife requires javascript,
+add this to pelican pages:
+
+{% block javascript %}
+<script type="text/javascript" src="{{ SITEURL }}/theme/js/json-sans-eval.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/js/minilife.js"></script>
+{% endblock %}
+-->
