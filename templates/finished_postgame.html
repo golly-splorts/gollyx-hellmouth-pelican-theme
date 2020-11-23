@@ -1,26 +1,46 @@
         <!-- postseason finished game template -->
-        <div class="card text-white">
-          <div class="card-body">
-            <h5 class="card-title">Game 1, World Series</h5>
-            <div>
-                <table width="100%"><tr><td>
-                  <h6><span class="team1color team1name game-winner">San Diego Balloon Animals</span> <small>(1)</small></h6>
-                </td><td align="right">
-                  <span class="team1color game-winner" id="livecells1">251</span>
-                </td></tr></table>
+        <div class="card text-white game-card finished-game-card postseason-game-card">
+          <div class="card-body game-card-body finished-game-card-body">
+            <h5 class="card-title game-card-description postseason-game-card-description"><span class="postseason-game-description">Game 1, World Series</span></h5>
+
+            <div class="game-card-team1 finished-game-card-team1">
+              <table width="100%">
+                <tr>
+                  <td> 
+                    <h6 class="game-card-team-name-header">
+                      <span class="team1color team1name">Team 1</span> <small><span class="team1color team1record">(W-L)</span></small>
+                    </h6>
+                  </td>
+                  <td align="right">
+                    <h6 class="game-card-team-name-header">
+                      <span class="team1color" id="livecells1">2</span>
+                    </h6>
+                  </td>
+                </tr>
+              </table>
             </div>
-            <div>
-                <table width="100%"><tr><td>
-                  <h6><span class="team2color team2name game-loser">Detroit Grape Chews</span> <small>(4)</small></h6>
-                </td><td align="right">
-                  <span class="team2color game-loser" id="livecells2">250</span>
-                </td></tr></table>
+            <div class="game-card-team2 finished-game-card-team2">
+              <table width="100%">
+                <tr>
+                  <td> 
+                    <h6 class="game-card-team-name-header">
+                      <span class="team2color team2name">Team 2</span> <small><span class="team2color team2record">(W-L)</span></small>
+                    </h6>
+                  </td>
+                  <td align="right">
+                    <h6 class="game-card-team-name-header">
+                      <span class="team2color" id="livecells1">1</span>
+                    </h6>
+                  </td>
+                </tr>
+              </table>
             </div>
-            <div>
-                Map: <span class="pattern-name">East Hellmouth</span>
+
+            <div class="game-card-map finished-game-card-map">
+              Map: <span class="map-name">Map Name</span>
             </div>
-            <div>
-                <button style="margin-top: 20px;" type="button" class="btn btn-primary btn-sm btn-success">View Simulation ></button>
+            <div class="game-card-map finished-game-card-simulate">
+              <button style="margin-top: 20px;" type="button" class="btn btn-primary btn-sm btn-success">View Simulation</button>
             </div>
           </div>
         </div>
