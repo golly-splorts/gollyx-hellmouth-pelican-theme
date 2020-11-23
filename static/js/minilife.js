@@ -14,8 +14,9 @@
   /**
    * Init on 'load' event
    */
-  GOL.helpers.registerEvent(window, 'load', function () {
-    GOL.init();
+  MiniGOL.helpers.registerEvent(window, 'load', function () {
+    MiniGOL.init();
   }, false);
 
 }());
+

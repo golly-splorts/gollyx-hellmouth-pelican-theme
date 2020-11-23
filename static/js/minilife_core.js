@@ -3,7 +3,7 @@
  * Ch4zm of Hellmouth
  * 16 November 2020
  *
- * minilife_core.js defines the GOL structure,
+ * minilife_core.js defines the MiniGOL structure,
  * but does not initialize it or do anything.
  * See minilife.js for the auto-loading version.
  */
@@ -14,7 +14,7 @@ var Colors = {
   grays               : ["#3a3a3a", "#404040"]
 };
 
-var GOL = {
+var MiniGOL = {
 
   initialState: '[{"15":[16]},{"16":[16,17,18,26,27]},{"17":[19,26]},{"18":[18,24,26]},{"19":[18,21,24,25]},{"20":[21]},{"21":[19,22]},{"22":[21]},{"23":[17]},{"24":[16,18,19,23,24]},{"25":[16,23]},{"26":[15,16,24,25,26]},{"27":[26]}]',
 
@@ -93,7 +93,6 @@ var GOL = {
    * On Load Event
    */
   init : function() {
-    console.log('initializing');
     try {
       this.listLife.init();   // Reset/init algorithm
       this.loadConfig();      // Load config from URL
@@ -257,7 +256,7 @@ var GOL = {
 
     algorithmTime = (new Date());
 
-    liveCounts = GOL.listLife.nextGeneration();
+    liveCounts = MiniGOL.listLife.nextGeneration();
 
     algorithmTime = (new Date()) - algorithmTime;
 
@@ -266,16 +265,16 @@ var GOL = {
 
     guiTime = (new Date());
 
-    for (i = 0; i < GOL.listLife.redrawList.length; i++) {
-      x = GOL.listLife.redrawList[i][0];
-      y = GOL.listLife.redrawList[i][1];
+    for (i = 0; i < MiniGOL.listLife.redrawList.length; i++) {
+      x = MiniGOL.listLife.redrawList[i][0];
+      y = MiniGOL.listLife.redrawList[i][1];
 
-      if (GOL.listLife.redrawList[i][2] === 1) {
-        GOL.canvas.changeCelltoAlive(x, y);
-      } else if (GOL.listLife.redrawList[i][2] === 2) {
-        GOL.canvas.keepCellAlive(x, y);
+      if (MiniGOL.listLife.redrawList[i][2] === 1) {
+        MiniGOL.canvas.changeCelltoAlive(x, y);
+      } else if (MiniGOL.listLife.redrawList[i][2] === 2) {
+        MiniGOL.canvas.keepCellAlive(x, y);
       } else {
-        GOL.canvas.changeCelltoDead(x, y);
+        MiniGOL.canvas.changeCelltoDead(x, y);
       }
     }
 
@@ -284,38 +283,38 @@ var GOL = {
     // Post-run updates
 
     // Clear Trail
-    if (GOL.trail.schedule) {
-      GOL.trail.schedule = false;
-      GOL.canvas.drawWorld();
+    if (MiniGOL.trail.schedule) {
+      MiniGOL.trail.schedule = false;
+      MiniGOL.canvas.drawWorld();
     }
 
     // Change Grid
-    if (GOL.grid.schedule) {
-      GOL.grid.schedule = false;
-      GOL.canvas.drawWorld();
+    if (MiniGOL.grid.schedule) {
+      MiniGOL.grid.schedule = false;
+      MiniGOL.canvas.drawWorld();
     }
 
     // Change Colors
-    if (GOL.colors.schedule) {
-      GOL.colors.schedule = false;
-      GOL.canvas.drawWorld();
+    if (MiniGOL.colors.schedule) {
+      MiniGOL.colors.schedule = false;
+      MiniGOL.canvas.drawWorld();
     }
 
     // Running Information
-    GOL.generation++;
-    GOL.element.generation.innerHTML = GOL.generation;
-    GOL.element.livecells.innerHTML = liveCounts;
+    MiniGOL.generation++;
+    MiniGOL.element.generation.innerHTML = MiniGOL.generation;
+    MiniGOL.element.livecells.innerHTML = liveCounts;
 
-    r = 1.0/GOL.generation;
-    GOL.times.algorithm = (GOL.times.algorithm * (1 - r)) + (algorithmTime * r);
-    GOL.times.gui = (GOL.times.gui * (1 - r)) + (guiTime * r);
+    r = 1.0/MiniGOL.generation;
+    MiniGOL.times.algorithm = (MiniGOL.times.algorithm * (1 - r)) + (algorithmTime * r);
+    MiniGOL.times.gui = (MiniGOL.times.gui * (1 - r)) + (guiTime * r);
 
     // Flow Control
-    if (GOL.running) {
-      window.requestAnimationFrame(GOL.nextStep);
+    if (MiniGOL.running) {
+      window.requestAnimationFrame(MiniGOL.nextStep);
     } else {
-      if (GOL.clear.schedule) {
-        GOL.cleanUp();
+      if (MiniGOL.clear.schedule) {
+        MiniGOL.cleanUp();
       }
     }
   },
@@ -337,11 +336,11 @@ var GOL = {
      * the current mouse location.
      */
     canvasMouseDown : function(event) {
-      var position = GOL.helpers.mousePosition(event);
-      GOL.canvas.switchCell(position[0], position[1]);
-      GOL.handlers.lastX = position[0];
-      GOL.handlers.lastY = position[1];
-      GOL.handlers.mouseDown = true;
+      var position = MiniGOL.helpers.mousePosition(event);
+      MiniGOL.canvas.switchCell(position[0], position[1]);
+      MiniGOL.handlers.lastX = position[0];
+      MiniGOL.handlers.lastY = position[1];
+      MiniGOL.handlers.mouseDown = true;
     },
 
 
@@ -349,7 +348,7 @@ var GOL = {
      * Handle user mouse up instance.
      */
     canvasMouseUp : function() {
-      GOL.handlers.mouseDown = false;
+      MiniGOL.handlers.mouseDown = false;
     },
 
 
@@ -359,12 +358,12 @@ var GOL = {
      * cell alive/dead state at mouse location.
      */
     canvasMouseMove : function(event) {
-      if (GOL.handlers.mouseDown) {
-        var position = GOL.helpers.mousePosition(event);
-        if ((position[0] !== GOL.handlers.lastX) || (position[1] !== GOL.handlers.lastY)) {
-          GOL.canvas.switchCell(position[0], position[1]);
-          GOL.handlers.lastX = position[0];
-          GOL.handlers.lastY = position[1];
+      if (MiniGOL.handlers.mouseDown) {
+        var position = MiniGOL.helpers.mousePosition(event);
+        if ((position[0] !== MiniGOL.handlers.lastX) || (position[1] !== MiniGOL.handlers.lastY)) {
+          MiniGOL.canvas.switchCell(position[0], position[1]);
+          MiniGOL.handlers.lastX = position[0];
+          MiniGOL.handlers.lastY = position[1];
         }
       }
     },
@@ -380,11 +379,11 @@ var GOL = {
       }
 
       if (event.keyCode === 67) { // Key: C
-        GOL.handlers.buttons.clear();
+        MiniGOL.handlers.buttons.clear();
       } else if (event.keyCode === 82 ) { // Key: R
-        GOL.handlers.buttons.run();
+        MiniGOL.handlers.buttons.run();
       } else if (event.keyCode === 83 ) { // Key: S
-        GOL.handlers.buttons.step();
+        MiniGOL.handlers.buttons.step();
       }
     },
 
@@ -396,10 +395,10 @@ var GOL = {
        */
       run : function() {
 
-        GOL.running = !GOL.running;
+        MiniGOL.running = !MiniGOL.running;
         // Update run/stop button state
-        if (GOL.running) {
-          GOL.nextStep();
+        if (MiniGOL.running) {
+          MiniGOL.nextStep();
           document.getElementById('buttonRun').textContent = 'Stop';
           document.getElementById('buttonRun').classList.remove("btn-success");
           document.getElementById('buttonRun').classList.add("btn-danger");
@@ -415,8 +414,8 @@ var GOL = {
        * Button Handler - Next Step - One Step only
        */
       step : function() {
-        if (!GOL.running) {
-          GOL.nextStep();
+        if (!MiniGOL.running) {
+          MiniGOL.nextStep();
         }
       },
 
@@ -425,14 +424,14 @@ var GOL = {
        * Button Handler - Clear World
        */
       clear : function() {
-        if (GOL.running) {
-          GOL.clear.schedule = true;
-          GOL.running = false;
+        if (MiniGOL.running) {
+          MiniGOL.clear.schedule = true;
+          MiniGOL.running = false;
           $("#buttonRun").text("Run");
           document.getElementById('buttonRun').classList.remove("btn-danger");
           document.getElementById('buttonRun').classList.add("btn-success");
         } else {
-          GOL.cleanUp();
+          MiniGOL.cleanUp();
         }
       },
 
@@ -441,11 +440,11 @@ var GOL = {
        * Button Handler - Remove/Add Trail
        */
       trail : function() {
-        GOL.trail.current = !GOL.trail.current;
-        if (GOL.running) {
-          GOL.trail.schedule = true;
+        MiniGOL.trail.current = !MiniGOL.trail.current;
+        if (MiniGOL.running) {
+          MiniGOL.trail.schedule = true;
         } else {
-          GOL.canvas.drawWorld();
+          MiniGOL.canvas.drawWorld();
         }
       },
 
@@ -453,10 +452,10 @@ var GOL = {
        * Draw the colors
        */
       colors : function() {
-        if (GOL.running) {
-          GOL.colors.schedule = true; // Delay redraw
+        if (MiniGOL.running) {
+          MiniGOL.colors.schedule = true; // Delay redraw
         } else {
-          GOL.canvas.drawWorld(); // Force complete redraw
+          MiniGOL.canvas.drawWorld(); // Force complete redraw
         }
       },
 
@@ -464,11 +463,11 @@ var GOL = {
        * Show/hide the grid
        */
       grid : function() {
-        GOL.grid.current = (GOL.grid.current + 1) % GOL.grid.schemes.length;
-        if (GOL.running) {
-          GOL.grid.schedule = true; // Delay redraw
+        MiniGOL.grid.current = (MiniGOL.grid.current + 1) % MiniGOL.grid.schemes.length;
+        if (MiniGOL.running) {
+          MiniGOL.grid.schedule = true; // Delay redraw
         } else {
-          GOL.canvas.drawWorld(); // Force complete redraw
+          MiniGOL.canvas.drawWorld(); // Force complete redraw
         }
       },
 
@@ -498,13 +497,13 @@ var GOL = {
       this.canvas = document.getElementById('canvas');
       this.context = this.canvas.getContext('2d');
 
-      this.cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize;
+      this.cellSize = MiniGOL.zoom.schemes[MiniGOL.zoom.current].cellSize;
       this.cellSpace = 1;
 
       // register the mousedown/mouseup/mousemove events with function callbacks
-      GOL.helpers.registerEvent(this.canvas, 'mousedown', GOL.handlers.canvasMouseDown, false);
-      GOL.helpers.registerEvent(document, 'mouseup', GOL.handlers.canvasMouseUp, false);
-      GOL.helpers.registerEvent(this.canvas, 'mousemove', GOL.handlers.canvasMouseMove, false);
+      MiniGOL.helpers.registerEvent(this.canvas, 'mousedown', MiniGOL.handlers.canvasMouseDown, false);
+      MiniGOL.helpers.registerEvent(document, 'mouseup', MiniGOL.handlers.canvasMouseUp, false);
+      MiniGOL.helpers.registerEvent(this.canvas, 'mousemove', MiniGOL.handlers.canvasMouseMove, false);
 
       this.clearWorld();
     },
@@ -518,9 +517,9 @@ var GOL = {
 
       // Init ages (Canvas reference)
       this.age = [];
-      for (i = 0; i < GOL.columns; i++) {
+      for (i = 0; i < MiniGOL.columns; i++) {
         this.age[i] = [];
-        for (j = 0; j < GOL.rows; j++) {
+        for (j = 0; j < MiniGOL.rows; j++) {
           this.age[i][j] = 0; // Dead
         }
       }
@@ -534,7 +533,7 @@ var GOL = {
       var i, j;
 
       // Special no grid case
-      if (GOL.grid.schemes[GOL.grid.current].color === '') {
+      if (MiniGOL.grid.schemes[MiniGOL.grid.current].color === '') {
         this.setNoGridOn();
         this.width = this.height = 0;
       } else {
@@ -543,23 +542,20 @@ var GOL = {
       }
 
       // Dynamic canvas size
-      this.width = this.width + (this.cellSpace * GOL.columns) + (this.cellSize * GOL.columns);
+      this.width = this.width + (this.cellSpace * MiniGOL.columns) + (this.cellSize * MiniGOL.columns);
       this.canvas.setAttribute('width', this.width);
 
-      this.height = this.height + (this.cellSpace * GOL.rows) + (this.cellSize * GOL.rows);
+      this.height = this.height + (this.cellSpace * MiniGOL.rows) + (this.cellSize * MiniGOL.rows);
       this.canvas.setAttribute('height', this.height);
 
       // Fill background
-      this.context.fillStyle = GOL.grid.schemes[GOL.grid.current].color;
+      this.context.fillStyle = MiniGOL.grid.schemes[MiniGOL.grid.current].color;
       this.context.fillRect(0, 0, this.width, this.height);
-      console.log('filling rectangle ' + GOL.columns + ', ' + GOL.rows);
-      console.log(Colors.gridStrokeColor1);
-      console.log(this.context.fillStyle);
 
 
-      for (i = 0 ; i < GOL.columns; i++) {
-        for (j = 0 ; j < GOL.rows; j++) {
-          if (GOL.listLife.isAlive(i, j)) {
+      for (i = 0 ; i < MiniGOL.columns; i++) {
+        for (j = 0 ; j < MiniGOL.rows; j++) {
+          if (MiniGOL.listLife.isAlive(i, j)) {
             this.drawCell(i, j, true);
           } else {
             this.drawCell(i, j, false);
@@ -573,7 +569,7 @@ var GOL = {
      * setNoGridOn
      */
     setNoGridOn : function() {
-      this.cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize + 1;
+      this.cellSize = MiniGOL.zoom.schemes[MiniGOL.zoom.current].cellSize + 1;
       this.cellSpace = 0;
     },
 
@@ -582,7 +578,7 @@ var GOL = {
      * setNoGridOff
      */
     setNoGridOff : function() {
-      this.cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize;
+      this.cellSize = MiniGOL.zoom.schemes[MiniGOL.zoom.current].cellSize;
       this.cellSpace = 1;
     },
 
@@ -592,9 +588,9 @@ var GOL = {
      */
     drawCell : function (i, j, alive) {
       if (alive) {
-        this.context.fillStyle = GOL.colors.alive;
+        this.context.fillStyle = MiniGOL.colors.alive;
       } else {
-        this.context.fillStyle = GOL.colors.dead;
+        this.context.fillStyle = MiniGOL.colors.dead;
       }
       this.context.fillRect(this.cellSpace + (this.cellSpace * i) + (this.cellSize * i), this.cellSpace + (this.cellSpace * j) + (this.cellSize * j), this.cellSize, this.cellSize);
 
@@ -606,12 +602,12 @@ var GOL = {
      * cmr - this is only activated when a user clicks on a cell
      */
     switchCell : function(i, j) {
-      if(GOL.listLife.isAlive(i, j)) {
+      if(MiniGOL.listLife.isAlive(i, j)) {
         this.changeCelltoDead(i, j);
-        GOL.listLife.removeCell(i, j, GOL.listLife.actualState);
+        MiniGOL.listLife.removeCell(i, j, MiniGOL.listLife.actualState);
       } else {
         this.changeCelltoAlive(i, j);
-        GOL.listLife.addCell(i, j, GOL.listLife.actualState);
+        MiniGOL.listLife.addCell(i, j, MiniGOL.listLife.actualState);
       }
     },
 
@@ -620,7 +616,7 @@ var GOL = {
      * keepCellAlive
      */
     keepCellAlive : function(i, j) {
-      if (i >= 0 && i < GOL.columns && j >=0 && j < GOL.rows) {
+      if (i >= 0 && i < MiniGOL.columns && j >=0 && j < MiniGOL.rows) {
         this.age[i][j]++;
         this.drawCell(i, j, true);
       }
@@ -631,7 +627,7 @@ var GOL = {
      * changeCelltoAlive
      */
     changeCelltoAlive : function(i, j) {
-      if (i >= 0 && i < GOL.columns && j >=0 && j < GOL.rows) {
+      if (i >= 0 && i < MiniGOL.columns && j >=0 && j < MiniGOL.rows) {
         this.age[i][j] = 1;
         this.drawCell(i, j, true);
       }
@@ -642,7 +638,7 @@ var GOL = {
      * changeCelltoDead
      */
     changeCelltoDead : function(i, j) {
-      if (i >= 0 && i < GOL.columns && j >=0 && j < GOL.rows) {
+      if (i >= 0 && i < MiniGOL.columns && j >=0 && j < MiniGOL.rows) {
         this.age[i][j] = -this.age[i][j]; // Keep trail
         this.drawCell(i, j, false);
       }
@@ -762,14 +758,6 @@ var GOL = {
                 possibleNeighborsList[0] = undefined;
                 this.topPointer = k + 1;
                 neighbors++;
-                //var xx = state[i-1][k];
-                //var yy = state[i-1][0];
-                //if (this.getCellColor(xx, yy) == 1) {
-                //  neighbors1++;
-                //}
-                //if (this.getCellColor(xx, yy) == 2) {
-                //  neighbors2++;
-                //}
               }
 
               // N
@@ -777,14 +765,6 @@ var GOL = {
                 possibleNeighborsList[1] = undefined;
                 this.topPointer = k;
                 neighbors++;
-                //var xx = state[i-1][k];
-                //var yy = state[i-1][0];
-                //var cellcol = this.getCellColor(xx, yy);
-                //if (cellcol == 1) {
-                //  neighbors1++;
-                //} else if (cellcol == 2) {
-                //  neighbors2++;
-                //}
               }
 
               // NE
@@ -799,14 +779,6 @@ var GOL = {
                 }
 
                 neighbors++;
-                //var xx = state[i-1][k];
-                //var yy = state[i-1][0];
-                //var cellcol = this.getCellColor(xx, yy);
-                //if (cellcol == 1) {
-                //  neighbors1++;
-                //} else if (cellcol == 2) {
-                //  neighbors2++;
-                //}
               }
 
               if (state[i-1][k] > (x + 1)) {
@@ -824,27 +796,11 @@ var GOL = {
           if (state[i][k] === (x - 1)) {
             possibleNeighborsList[3] = undefined;
             neighbors++;
-            //var xx = state[i][k];
-            //var yy = state[i][0];
-            //var cellcol = this.getCellColor(xx, yy);
-            //if (cellcol == 1) {
-            //  neighbors1++;
-            //} else if (cellcol == 2) {
-            //  neighbors2++;
-            //}
           }
 
           if (state[i][k] === (x + 1)) {
             possibleNeighborsList[4] = undefined;
             neighbors++;
-            //var xx = state[i][k];
-            //var yy = state[i][0];
-            //var cellcol = this.getCellColor(xx, yy);
-            //if (cellcol == 1) {
-            //  neighbors1++;
-            //} else if (cellcol == 2) {
-            //  neighbors2++;
-            //}
           }
 
           if (state[i][k] > (x + 1)) {
@@ -863,28 +819,12 @@ var GOL = {
                 possibleNeighborsList[5] = undefined;
                 this.bottomPointer = k + 1;
                 neighbors++;
-                //var xx = state[i+1][k];
-                //var yy = state[i+1][0];
-                //var cellcol = this.getCellColor(xx, yy);
-                //if (cellcol == 1) {
-                //  neighbors1++;
-                //} else if (cellcol == 2) {
-                //  neighbors2++;
-                //}
               }
 
               if (state[i+1][k] === x) {
                 possibleNeighborsList[6] = undefined;
                 this.bottomPointer = k;
                 neighbors++;
-                //var xx = state[i+1][k];
-                //var yy = state[i+1][0];
-                //var cellcol = this.getCellColor(xx, yy);
-                //if (cellcol == 1) {
-                //  neighbors1++;
-                //} else if (cellcol == 2) {
-                //  neighbors2++;
-                //}
               }
 
               if (state[i+1][k] === (x + 1)) {
@@ -897,14 +837,6 @@ var GOL = {
                 }
 
                 neighbors++;
-                //var xx = state[i+1][k];
-                //var yy = state[i+1][0];
-                //var cellcol = this.getCellColor(xx, yy);
-                //if (cellcol == 1) {
-                //  neighbors1++;
-                //} else if (cellcol == 2) {
-                //  neighbors2++;
-                //}
               }
 
               if (state[i+1][k] > (x + 1)) {
@@ -1096,7 +1028,7 @@ var GOL = {
     mousePosition : function (e) {
       // http://www.malleus.de/FAQ/getImgMousePos.html
       // http://www.quirksmode.org/js/events_properties.html#position
-      var event, x, y, domObject, posx = 0, posy = 0, top = 0, left = 0, cellSize = GOL.zoom.schemes[GOL.zoom.current].cellSize + 1;
+      var event, x, y, domObject, posx = 0, posy = 0, top = 0, left = 0, cellSize = MiniGOL.zoom.schemes[MiniGOL.zoom.current].cellSize + 1;
 
       event = e;
       if (!event) {
@@ -1130,4 +1062,5 @@ var GOL = {
   }
 
 };
+
 
