@@ -3,7 +3,12 @@
 
   <div class="container">
 
-    <a href="{{ SITEURL }}" class="navbar-brand">{{ SITENAME }}</a>
+    <a href="{{ SITEURL }}" class="navbar-brand">
+      <!--
+      <object type="image/svg+xml" data="logo.svg" class="logo">
+      -->
+      {{ SITENAME }}
+    </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -27,7 +32,7 @@
 
         <!-- current games -->
         <li class="nav-item">
-          <a class="nav-link" href="landing.html">Home</a>
+          <a class="nav-link" href="{{ SITEURL }}/landing.html">Home</a>
         </li>
 
         <li class="nav-item dropdown">
