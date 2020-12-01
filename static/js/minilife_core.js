@@ -52,7 +52,7 @@ var MiniGOL = {
       {
         columns : 40,
         rows : 40,
-        cellSize : 4
+        cellSize : 6
       },
     ],
   },
