@@ -1,12 +1,10 @@
-
-<footer id="contentinfo" class="body">
-
+    {% block foot %}
     <div class="text-center">
     <p>Golly is a product of the <a href="https://ch4zm.github.io/metablaseball">Metablaseball Research Laboratory</a> at Hellmouth Community College</p>
 
     <p>Golly Chief Architect: <a href="https://ch4zm.github.io">Ch4zm of Hellmouth</a></p>
 
-    <p>Golly Commissioner: Rubix Helicopter</p>
+    <p>Golly Commissioner: Rubrix Helicopter</p>
 
     <p>
         <a rel="license" href="https://mit-license.org/">
@@ -20,8 +18,5 @@
     </p>
     </div>
 
-{% include '_includes/analytics.html' %}
-
-</footer><!-- /#contentinfo -->
-</body>
-</html>
+    {% include '_includes/analytics.html' %}
+    {% endblock %}

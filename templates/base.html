@@ -1,4 +1,16 @@
-{% include '_includes/header.html' %}
+<!DOCTYPE html>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<html lang="en">
+<head>
+
+    {% include '_includes/header.html' %}
+    {% block css %}
+    {% endblock %}
+
+</head>
+<body id="index">
+
 {% include '_includes/navbar.html' %}
 
 {% block content %}
@@ -9,5 +21,8 @@
 {% block javascript %}
 {% endblock %}
 
-{% include '_includes/footer.html' %}
-
+<footer id="contentinfo" class="body">
+    {% include '_includes/footer.html' %}
+</footer><!-- /#contentinfo -->
+</body>
+</html>

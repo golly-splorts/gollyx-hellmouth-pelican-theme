@@ -4,9 +4,7 @@
   <div class="container">
 
     <a href="{{ SITEURL }}" class="navbar-brand">
-      <!--
-      <object type="image/svg+xml" data="logo.svg" class="logo">
-      -->
+      <img class="navbar-brand-logo" type="image/png" src="{{ SITEURL }}/theme/img/golly-favicon.png" alt="logo" />
       {{ SITENAME }}
     </a>
 
@@ -35,30 +33,15 @@
           <a class="nav-link" href="{{ SITEURL }}/landing.html">Home</a>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
-              Modes <span class="caret"></span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="themes">
-            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_0009.html">Mode 00-09</a>
-            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_1019.html">Mode 10-19</a>
-            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_21.html">Mode 21</a>
-            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_22.html">Mode 22</a>
-            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_23.html">Mode 23</a>
-            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_31.html">Mode 31</a>
-            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_32.html">Mode 32</a>
-            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_33.html">Mode 33</a>
-            <a class="dropdown-item" href="{{ SITEURL }}/siteMode_40plus.html">Mode 40</a>
-          </div>
-        </li>
-
         <!-- seasons -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
               Season <span class="caret"></span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="themes">
+          <div id="navbar-season-dropdown-menu" class="dropdown-menu" aria-labelledby="themes">
+            <!--
             <a class="dropdown-item" href="{{ SITEURL }}/season.html">Season 1</a>
+            -->
           </div>
         </li>
 
@@ -67,8 +50,10 @@
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
               Postseason <span class="caret"></span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="themes">
+          <div id="navbar-postseason-dropdown-menu" class="dropdown-menu" aria-labelledby="themes">
+            <!--
             <a class="dropdown-item" href="{{ SITEURL }}/postseason.html">Season 1</a>
+            -->
           </div>
         </li>
 
@@ -85,6 +70,11 @@
         <!-- maps -->
         <li class="nav-item">
           <a class="nav-link" href="{{SITEURL}}/maps.html">Maps</a>
+        </li>
+
+        <!-- simulator -->
+        <li class="nav-item">
+          <a class="nav-link" href="{{SITEURL}}/simulator/index.html">Simulator</a>
         </li>
 
         <!-- rules -->
