@@ -3,8 +3,8 @@
 set -euo pipefail
 set -x
 
-if [ -z "${GOLLY_PELICAN_HOME}" ]; then
-	echo 'You must set the $GOLLY_PELICAN_HOME environment variable to proceed.'
+if [ -z "${GOLLY_PELICAN_THEME_HOME}" ]; then
+	echo 'You must set the $GOLLY_PELICAN_THEME_HOME environment variable to proceed.'
 	exit 1
 fi
 
