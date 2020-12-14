@@ -14,6 +14,10 @@ h1, h2, h3 {
   font-size: 18px;
 }
 
+.scoreboard-table-right-column {
+    width: 36px;
+}
+
 body {
   /* navbar: */
   padding-top: 100px;
