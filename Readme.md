@@ -22,7 +22,7 @@ pelican-themes -U golly-pelican-theme
 ## Usage
 
 To use this Pelican theme, set the theme to `golly-pelican-theme`
-in p`pelican.conf`.
+in `pelican.conf`.
 
 ```
 THEME = 'golly-pelican-theme'
@@ -34,12 +34,6 @@ To customize the navbar, edit the file `templates/_includes/navbar.html`.
 
 
 ## Templates
-
-
-### Game Templates
-
-There are several game templates for regular season and postseason games
-(scheduled, in progress, over) to make it easier to develop mockups.
 
 ### Minilife
 
@@ -84,7 +78,8 @@ defines a `<template></template>` tag set that contains this:
 
 Javascript is used to dynamically add a `<script>` tag to
 load `minilife_core.js`. This forces `MiniGOL.init()` to be
-called manually, hence the `minilife.js`/`minilife_core.js` split.
+called manually, hence the split into the two files
+`minilife.js` and `minilife_core.js`.
 
 Here is how to do that in JS:
 
