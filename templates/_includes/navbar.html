@@ -28,11 +28,6 @@
         - maps
         -->
 
-        <!-- current games -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{ SITEURL }}/index.html">Home</a>
-        </li>
-
         <!-- seasons -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
@@ -62,12 +57,16 @@
           <a class="nav-link" href="{{SITEURL}}/league.html">Standings</a>
         </li>
 
-        <!-- roster list -->
+        <!-- explore -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
-              Rosters<span class="caret"></span>
+              Explore<span class="caret"></span>
           </a>
-          <div id="navbar-postseason-dropdown-menu" class="dropdown-menu" aria-labelledby="themes">
+          <div id="navbar-explore-dropdown-menu" class="dropdown-menu" aria-labelledby="themes">
+            <a class="dropdown-item" href="{{ SITEURL }}/simulator/index.html">Simulator</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/maps.html">Maps</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/player_viewer/">Player Viewer</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ SITEURL }}/aa.html">Alewife Arsonists</a>
             <a class="dropdown-item" href="{{ SITEURL }}/atl.html">Atlanta Glitter Sharks</a>
             <a class="dropdown-item" href="{{ SITEURL }}/btx.html">Baltimore Texas</a>
@@ -87,29 +86,20 @@
           </div>
         </li>
 
-        <!-- player viewer -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{SITEURL}}/player_viewer/">Players</a>
-        </li>
-
         <!-- maps -->
         <li class="nav-item">
           <a class="nav-link" href="{{SITEURL}}/maps.html">Maps</a>
         </li>
 
-        <!-- simulator -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{SITEURL}}/simulator/index.html">Simulator</a>
-        </li>
-
-        <!-- rules -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{SITEURL}}/rules.html">Rules</a>
-        </li>
-
         <!-- about -->
-        <li class="nav-item">
-          <a class="nav-link" href="{{SITEURL}}/about.html">About</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
+              About<span class="caret"></span>
+          </a>
+          <div id="navbar-about-dropdown-menu" class="dropdown-menu" aria-labelledby="themes">
+            <a class="dropdown-item" href="{{ SITEURL }}/about.html">About Golly</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/rules.html">Rules</a>
+          </div>
         </li>
 
       </ul>
