@@ -8,19 +8,6 @@
     init : function() {
 
       ///////////////////////////
-      // Housekeeping
-
-      // If we are on the articles.html page, make the tables look nice
-      if (getUrlPath().endsWith("articles.html")) {
-        // Make the tables fancy
-        var tableTags = document.getElementsByTagName('table');
-        var i;
-        for (i = 0; i < tableTags.length; i++) {
-          tableTags[i].classList.add('table');
-        }
-      }
-
-      ///////////////////////////
       // Navbar
 
       // get current day/season info from API /today
