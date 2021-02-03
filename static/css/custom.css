@@ -60,8 +60,12 @@ footer {
     margin-top: 120px;
 }
 
-.table th, .table td, .table thead th {
-    border-top: 2px solid #555;
+.table thead th, .table td {
+    border-top: 1px solid #666;
+}
+
+.table th {
+    border-top: 2px solid #111;
 }
 
 
