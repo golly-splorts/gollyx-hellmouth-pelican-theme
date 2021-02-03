@@ -7,8 +7,6 @@
 
       ///////////////////////////
       // Customized JS for pages
-      console.log('--------------- getUrlPath() --------------');
-      console.log(getUrlPath());
 
       //// If we are on the articles.html page, make the tables look nice
       //if (getUrlPath().endsWith("articles.html")) {
