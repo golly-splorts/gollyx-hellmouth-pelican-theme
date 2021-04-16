@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-ifeq ($(shell echo ${GOLLY_PELICAN_THEME_HOME}),)
-$(error Environment variable GOLLY_PELICAN_THEME_HOME not defined. Please run "source environment" in the golly-pelican-theme repo root directory before running make commands)
+ifeq ($(shell echo ${GOLLYX_PELICAN_THEME_HOME}),)
+$(error Environment variable GOLLYX_PELICAN_THEME_HOME not defined. Please run "source environment" in the repo root directory before running make commands)
 endif
 
