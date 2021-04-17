@@ -23,3 +23,13 @@ function getBaseApiUrl() {
   }
 }
 
+function getMapsApiUrl() {
+  if (mapsApiUrl==='') {
+    var protocol = window.location.protocol;
+    var host = window.location.host;
+    return protocol + '//maps.' + host;
+  } else {
+    return mapsApiUrl;
+  }
+}
+
