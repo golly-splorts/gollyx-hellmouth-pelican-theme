@@ -4,7 +4,7 @@
   <div id="navbar-div-container" class="container">
 
     <a href="{{ SITEURL }}/" class="navbar-brand">
-      <img class="navbar-brand-logo" type="image/png" src="{{ SITEURL }}/theme/img/golly-favicon.png" alt="logo" />
+      <img class="navbar-brand-logo" type="image/png" width="25px" src="{{ SITEURL }}/theme/img/golly-favicon.png" alt="logo" />
       {{ SITENAME }}
     </a>
 
@@ -95,6 +95,18 @@
             <a class="nav-link" href="{{ SITEURL }}/simulator/index.html">Simulator</a>
         </li>
 
+        <!-- cups -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
+              Cups <span class="caret"></span>
+          </a>
+          <div id="navbar-season-dropdown-menu" class="dropdown-menu" aria-labelledby="themes">
+            <a class="dropdown-item" href="https://hellmouth.golly.life">Hellmouth Cup</a>
+            <a class="dropdown-item" href="https://pseudo.golly.life">Pseudo Cup</a>
+            <a class="dropdown-item" href="https://toroidal.golly.life">Toroidal Cup</a>
+          </div>
+        </li>
+
         <!-- about -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="themes">
@@ -102,7 +114,7 @@
           </a>
           <div id="navbar-about-dropdown-menu" class="dropdown-menu" aria-labelledby="themes">
             <a class="dropdown-item" href="https://wiki.golly.life">Golly.Life Wiki</a>
-            <a class="dropdown-item" href="{{ SITEURL }}/rules.html">Golly.Life Rules</a>
+            <a class="dropdown-item" href="{{ SITEURL }}/rules.html">Hellmouth Cup Rules</a>
           </div>
         </li>
 

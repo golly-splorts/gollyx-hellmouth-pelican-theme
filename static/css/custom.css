@@ -1,3 +1,10 @@
+/* navbar color */
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-brand:hover {
+    color: #6BD0FF !important;
+}
+
+/* navbar logo padding */
 .navbar-brand-logo {
   width: 25px;
   height: 25px;
