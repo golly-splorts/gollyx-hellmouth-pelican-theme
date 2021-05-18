@@ -3,7 +3,7 @@
 set -euo pipefail
 set -x
 
-REMOTE="gh"
+REMOTE="ghx"
 
 if [ -z "${GOLLYX_PELICAN_THEME_HOME}" ]; then
 	echo 'You must set the $GOLLYX_PELICAN_THEME_HOME environment variable to proceed.'
